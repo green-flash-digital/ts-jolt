@@ -7,5 +7,6 @@
   },
   "author": "Drew DeCarme (drew@greenflash.digital)",
   "license": "Apache-2.0",
-  "description": ""
+  "description": "",
+  "packageManager": "yarn@4.6.0"
 }
