@@ -1,12 +1,28 @@
 {
-  "name": "ts-tools",
+  "name": "ts-jolt",
   "description": "A collection of TypeScript tools, configs, and utilities that makes writing node, browser and isomorphic apps that much easier",
   "version": "0.0.1",
+  "author": "Drew DeCarme (drew@greenflash.digital)",
+  "license": "Apache-2.0",
+  "packageManager": "yarn@4.6.0",
+  "type": "module",
+  "sideEffects": false,
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {},
-  "author": "Drew DeCarme (drew@greenflash.digital)",
-  "license": "Apache-2.0",
-  "packageManager": "yarn@4.6.0"
+  "scripts": {
+    "build": "yarn tsc --project tsconfig.build.json",
+    "dev": "yarn build --watch"
+  },
+  "exports": {
+    "./*": "./dist/*/index.js",
+    "./tsconfig/library": "./tsconfigs/tsconfig.library.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "typescript": "^5.7.3"
+  }
 }
