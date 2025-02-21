@@ -1,5 +1,13 @@
 # ts-jolt Changelog
 
+## v0.2.1
+
+2025-02-21
+
+### 🐛 Fixed
+
+- Adds the `tsconfig/library-next` export to the `package.json`
+
 ## v0.2.0
 
 2025-02-21
