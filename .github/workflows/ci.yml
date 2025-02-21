@@ -24,8 +24,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: "yarn"
 
+      - name: Enable Corepack # Ensures the correct version of yarn is used
+        run: corepack enable
+
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Run Tests
         run: yarn test:ci

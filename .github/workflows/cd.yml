@@ -24,13 +24,14 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: "yarn"
 
+      - name: Enable Corepack # Ensures the correct version of yarn is used
+        run: corepack enable
+
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile # Change to "npm ci" if using npm
+        run: yarn install --immutable
 
       - name: Build Project
         run: yarn build
 
       - name: Publish to NPM
         run: npm publish
-        env:
-          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }} # Example of using secrets for deployment
