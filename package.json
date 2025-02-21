@@ -12,7 +12,9 @@
   },
   "scripts": {
     "build": "yarn tsc --project tsconfig.build.json",
-    "dev": "yarn build --watch"
+    "dev": "yarn build --watch",
+    "test": "vitest",
+    "test:ci": "vitest run"
   },
   "exports": {
     "./*": "./dist/*/index.js",
@@ -24,6 +26,7 @@
   ],
   "devDependencies": {
     "@types/node": "^22.13.4",
+    "@vitest/coverage-v8": "3.0.6",
     "typescript": "^5.7.3",
     "vitest": "^3.0.6"
   }

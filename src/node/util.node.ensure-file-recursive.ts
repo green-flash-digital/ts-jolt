@@ -7,11 +7,16 @@ import path from "node:path";
  */
 export async function ensureFileRecursive(filePath: string) {
   try {
-    // Check if the file already exists
-    await access(filePath);
+    await access(filePath); // Check if the file exists
   } catch {
-    // If file does not exist, create the directory and the file
+    // Use a lock by ensuring directory creation is awaited before writing the file
     await mkdir(path.dirname(filePath), { recursive: true });
-    await writeFile(filePath, "", { flag: "a" }); // Create the file if it doesn't exist
+
+    try {
+      // Attempt to create the file only if it doesn't exist
+      await writeFile(filePath, "", { flag: "wx" }); // 'wx' prevents overwriting
+    } catch (err: any) {
+      if (err.code !== "EEXIST") throw err; // Ignore 'file already exists' errors
+    }
   }
 }

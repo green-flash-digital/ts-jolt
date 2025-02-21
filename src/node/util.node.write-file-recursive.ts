@@ -1,6 +1,5 @@
 import { writeFile as fsWriteFile, mkdir } from "node:fs/promises";
 import path from "node:path";
-import type internal from "node:stream";
 
 /**
  * Writes a file regardless of a directory doesn't exist.
@@ -12,7 +11,6 @@ export async function writeFileRecursive(
     | NodeJS.ArrayBufferView
     | Iterable<string | NodeJS.ArrayBufferView>
     | AsyncIterable<string | NodeJS.ArrayBufferView>
-    | internal.Stream
 ) {
   try {
     const directory = path.dirname(filepath);
