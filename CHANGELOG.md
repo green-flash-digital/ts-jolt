@@ -1,5 +1,13 @@
 # ts-jolt Changelog
 
+## 0.2.3
+
+### Patch Changes
+
+- 7d32278: ## 🔄 Changed
+
+  - Removes manual deploy in favor of changesets
+
 ## v0.2.3
 
 2025-04-22
