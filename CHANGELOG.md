@@ -1,5 +1,13 @@
 # ts-jolt Changelog
 
+## v0.2.3
+
+2025-04-22
+
+### 🐛 Fixed
+
+- Removes the comments from the tsconfigs to ensure they can be imported as raw json
+
 ## v0.2.2
 
 2025-02-21

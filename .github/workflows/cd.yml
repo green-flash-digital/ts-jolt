@@ -36,5 +36,11 @@ jobs:
       - name: Build Project
         run: yarn build
 
-      - name: Publish to NPM
-        run: npm publish
+      - name: Create a Release PR --or-- Publish to NPM
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GREEN_FLASH_NPM_TOKEN }}
